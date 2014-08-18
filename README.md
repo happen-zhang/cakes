@@ -4,11 +4,11 @@
 
 ## 例子 ##
 
-```
-var Cakes = require('cakes');
+```Javascript
+var Class = require('cakes').Class;
 
 // 定义Preson类
-var Preson = Cakes({
+var Preson = Class({
 
     __contrustor: function(name, age, gender) {
         this.name = name;
@@ -22,7 +22,7 @@ var Preson = Cakes({
 });
 
 // 定义Man类，继承Preson类
-var Man = Cakes({
+var Man = Class({
 
     __constructor: function(name, age) {
         this.super('__contructor', name, age, 'male');
@@ -47,7 +47,7 @@ m.say(); // My name is Emilly
 
 有时间就写。
 
-[ ] 实现继承
+* [ ] 实现继承
 
 ## License ##
 
