@@ -1,6 +1,8 @@
 Cakes [![Build Status](https://api.travis-ci.org/repositories/happen-zhang/cakes.png)](https://travis-ci.org/happen-zhang/cakes) [![NPM version](https://badge.fury.io/js/cakes.png)](http://badge.fury.io/js/cakes)
 ======
 
+[![NPM](https://nodei.co/npm/cakes.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cakes/)
+
 Cakes is an extremely simple class-like interface to JavaScript prototypal inheritance, it like implementation of PHP or Java.
 
 ## Getting Started ##
