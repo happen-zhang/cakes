@@ -12,7 +12,7 @@ Cakes is an extremely simple class-like interface to JavaScript prototypal inher
 You can use Cakes on the server side with [Node.js](http://nodejs.org/) and npm:
 
 ```
-$ npm install chic
+$ npm install cakes
 ```
 
 ### For browser ###
@@ -20,7 +20,22 @@ $ npm install chic
 You can use Cakes on browser, you can also download [resource file](https://github.com/happen-zhang/cakes/blob/master/lib/cakes.js) to your own project.In order to use Cakes, you can just insert the script tag into HTML page:
 
 ```
-<script src="path/to/lib/chic.js"></script>
+<script src="path/to/lib/cakes.js"></script>
+
+<script>
+
+// window.cakes
+var Class = cakes.Class;
+
+// ...
+
+</script>
+```
+
+### Test ###
+
+```
+npm test
 ```
 
 ## Usage ##
@@ -63,11 +78,11 @@ m.intro(); // My name is Emilly
 console.log(m); // { name: 'Emilly', age: 18, gender: 'male' }
 ```
 
-## __construct ##
+### __construct ###
 
 If you create a `__construct()` function (it is your choice,), it will automatically call the `__construct()` method/function when you create an object from your class. This feature like as PHP `__construct()`.
 
-## parent ##
+### parent ###
 
 You may find yourself writing code that refers to variables and functions in base classes, this is particularly true if you want to make your code DRY.Now, you should be using the special name `parent` which refers to the name of your base class as given in `Class` function as the second argument.You can use the `parent` method as follow:
 
@@ -78,7 +93,7 @@ You may find yourself writing code that refers to variables and functions in bas
 this.parent('__construct', name)
 ```
 
-## extend ##
+### extend ###
 
 `extend` method From jQuery.
 
@@ -86,7 +101,7 @@ this.parent('__construct', name)
 var extend = require('cakes').extend;
 ```
 
-## inherits ##
+### inherits ###
 
 `inherits` method From Node.js.
 
