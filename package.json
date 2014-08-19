@@ -1,9 +1,12 @@
 {
     "name": "cakes",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "A simple class-like interface to Javascript prototypal inheritance.",
     "main": "index.js",
     "author": "happen-zhang <zhanghaipeng404@gmail.com>",
+    "scripts": {
+        "test": "make test"
+    },
     "contributors": [
         "happen-zhang <zhanghaipeng404@gmail.com>"
     ],
