@@ -1,53 +1,97 @@
-# cakes #
+Cakes [![Build Status](https://api.travis-ci.org/repositories/happen-zhang/cakes.png)](https://travis-ci.org/happen-zhang/cakes) [![NPM version](https://badge.fury.io/js/cakes.png)](http://badge.fury.io/js/cakes)
+======
 
-在Javascript中轻松实现**class-like**方式的继承，就像PHP，Java等语言一样的面向对象实现。
+Cakes is an extremely simple class-like interface to JavaScript prototypal inheritance, it like implementation of PHP or Java.
 
-## 例子 ##
+## Getting Started ##
+
+### For Node.js ###
+
+You can use Cakes on the server side with [Node.js](http://nodejs.org/) and npm:
+
+```
+$ npm install chic
+```
+
+### For browser ###
+
+You can use Cakes on browser, you can also download [resource file](https://github.com/happen-zhang/cakes/blob/master/lib/cakes.js) to your own project.In order to use Cakes, you can just insert the script tag into HTML page:
+
+```
+<script src="path/to/lib/chic.js"></script>
+```
+
+## Usage ##
 
 ```Javascript
 var Class = require('cakes').Class;
 
-// 定义Preson类
+// Defind a Preson class
 var Preson = Class({
-
-    __contrustor: function(name, age, gender) {
+    __construct: function(name, age, gender) {
         this.name = name;
         this.age = age;
         this.gender = gender;
-    }
+    },
 
-    intro: function() {
-        console.log('My name is ' + this.name);
+    getName: function() {
+        return this.name;
     }
 });
 
-// 定义Man类，继承Preson类
+// Defind a Man class, and inherits Preson
 var Man = Class({
 
-    __constructor: function(name, age) {
-        this.super('__contructor', name, age, 'male');
+    __construct: function(name, age) {
+        // invoke __construct function of super class
+        this.parent('__construct', name, age, 'male');
+    },
+
+    intro: function() {
+        // invoke getName method
+        console.log('My name is ' + this.getName());
     }
 
 }, Preson);
 
-
 var m = new Man('Emilly', 18);
-m.say(); // My name is Emilly
+
+m.intro(); // My name is Emilly
+
+console.log(m); // { name: 'Emilly', age: 18, gender: 'male' }
 ```
 
-## __construstor ##
+## __construct ##
 
-实例化类时将会调用这个构造方法，如果父类中也有`__constructor`，则会先调用父类中的`__constructor`，这个特性类似于PHP和Java中的构造函数。
+If you create a `__construct()` function (it is your choice,), it will automatically call the `__construct()` method/function when you create an object from your class. This feature like as PHP `__construct()`.
 
-## super ##
+## parent ##
 
-`super(methodName, args...)`，这个方法的第一个参数接受的是父类中存在的方法名，其他参数作为形参传递给父类函数。
+You may find yourself writing code that refers to variables and functions in base classes, this is particularly true if you want to make your code DRY.Now, you should be using the special name `parent` which refers to the name of your base class as given in `Class` function as the second argument.You can use the `parent` method as follow:
 
-## TODO ##
+```
+// parent(methodName, args...)
+// after the name of method, others arguments will be passed into method
 
-有时间就写。
+this.parent('__construct', name)
+```
 
-* [ ] 实现继承
+## extend ##
+
+`extend` method From jQuery.
+
+```
+var extend = require('cakes').extend;
+```
+
+## inherits ##
+
+`inherits` method From Node.js.
+
+```
+// inherits = require('util').inherits;
+var inherits = require('cakes').inherits;
+```
 
 ## License ##
 
